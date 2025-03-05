@@ -2,9 +2,10 @@ spring:
   application:
     name: desafio
   datasource:
-    url: jdbc:postgresql://localhost:5432/desafio
+    url: jdbc:postgresql://localhost:5432/desafio_db
     username: admin
     password: admin
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -15,3 +16,12 @@ spring:
 logging:
   level:
     org.hibernate: DEBUG
+
+springdoc:
+  pathsToMatch: /**
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    tagsSorter: alpha

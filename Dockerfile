@@ -1,12 +1,19 @@
-FROM postgres:16
+# Etapa de build
+FROM gradle:8.12.1-jdk21 AS build
 
-ENV POSTGRES_USER=admin
-ENV POSTGRES_PASSWORD=admin
-ENV POSTGRES_DB=desafio
+WORKDIR /app
 
-# Copia um script SQL para inicialização
-COPY init.sql /docker-entrypoint-initdb.d/
+COPY . .
 
-EXPOSE 5432
+RUN gradle build --no-daemon
 
-CMD ["postgres"]
+# Etapa de execução
+FROM openjdk:21-slim
+
+WORKDIR /app
+
+COPY --from=build /app/build/libs/*.jar /app/application.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "/app/application.jar"]
