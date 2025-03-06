@@ -168,7 +168,7 @@ Remove um usuário do sistema pelo ID.
 
 #### Parametros
 
-   ```json   
+   ```   
     "id" = 9007199254740991   
    ```
 
@@ -193,7 +193,7 @@ Atualiza um usuário do sistema pelo ID e retorna com as novas informações.
 
 #### Body - Corpo da requisição
 
-   ```json   
+   ```   
     "id" = 9007199254740991   
    ```
 
@@ -237,7 +237,7 @@ Retorna um usuário específico pelo seu ID.
 
 #### Body - Corpo da requisição
 
-   ```json   
+   ```   
     "id" = 9007199254740991   
    ```
 
