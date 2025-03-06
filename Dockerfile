@@ -5,6 +5,9 @@ WORKDIR /app
 
 COPY . .
 
+# Executa os testes e imprime os resultados no console
+RUN gradle test --no-daemon --debug
+
 RUN gradle build --no-daemon
 
 # Etapa de execução
